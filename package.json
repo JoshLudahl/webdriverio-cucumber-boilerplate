@@ -26,6 +26,8 @@
   ],
   "scripts": {
     "clean": "read -p \"Are you sure you want to clean the project? [y/n] \" REPLY; if [[ $REPLY =~ ^[Yy]$ ]]; then rm -R .git .github demo-app test .codeclimate.yml .travis.yml jest.json wdio.BUILD.conf.js src/features/**; fi",
+    "compose:down": "docker-compose -f docker-compose.yml down",
+    "compose:up": "IMAGE=${npm_package_name} IMAGE_TAG=dev docker-compose -f docker-compose.yml up --build --abort-on-container-exit",
     "test": "run-s test:*",
     "test:lint": "eslint 'src/**/*.ts' 'test/**/*.js!(setup.js)'",
     "test:unit": "jest --config=jest.config.js --detectOpenHandles",

@@ -1,0 +1,12 @@
+version: '3.5'
+
+services:
+    automation:
+        build:
+            context: .
+            dockerfile: Dockerfile
+            target: build
+        command:
+            -   npm run wdio
+        container_name: automation-container
+        tty: true
